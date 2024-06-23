@@ -1,0 +1,157 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+* {
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+#battery,
+#clock,
+#cpu, 
+#temperature,
+#pulseaudio,
+#tray
+{
+  padding: 0 10px;
+  background-color: @background;
+  color: @foreground;
+}
+
+window#waybar {
+  font-family: FontAwesome, JetBrainsMono;
+  background-color: transparent;
+  border-bottom: 0px;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+.modules-right {
+  margin: 10px 10px 0 0;
+}
+
+.modules-center {
+  margin: 10px 0 0 0;
+}
+
+.modules-left {
+  margin: 10px 0 0 10px;
+}
+
+button {
+  border: none;
+}
+
+#workspaces {
+  background-color: @background;
+}
+
+#workspaces button {
+  font-weight: bold;
+  padding: 0 5px;
+  background-color: transparent;
+  color: @color15;
+  border-radius: 0;
+}
+
+#workspaces button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background-color: @color1;
+}
+
+#workspaces button.active {
+  color: @background;
+  background-color: @color7;
+}
+
+#workspaces button.urgent {
+  background-color: @color5;
+  color: @background;
+}
+
+#cava {
+  padding: 0 5px;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: @color4;
+  color: @background;
+}
+
+@keyframes blink {
+  to {
+    background-color: @color7;
+    color: @background;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: @color1;
+  color: @background;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#pulseaudio.muted {
+  background-color: @color5;
+  color: @background;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+  font-family: sans-serif;
+}
+
+#hardware, #keyboard {
+  background: @background;
+}
+
+#language{
+  background: @background;
+  padding: 0 0 0 10px;
+}
+#keyboard-state{
+  background: @background;
+  padding: 0 10px 0 0 ;
+}

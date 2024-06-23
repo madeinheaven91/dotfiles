@@ -1,0 +1,5 @@
+dns-resolution: yes
+hide-source: no
+hide-destination: no
+port-display: on
+show-totals: yes
