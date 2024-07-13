@@ -6,4 +6,4 @@ current_shell = true
 physical_cores = false
 theme = "Main"
 
-show = ["Machine", "Distribution", "DesktopEnvironment", "Terminal", "Shell", "Uptime", "Resolution", "Processor", ]
+show = ["Machine", "Distribution", "DesktopEnvironment", "Terminal", "Shell", "Packages", "Uptime", "Resolution", "Processor", ]
