@@ -1,0 +1,106 @@
+[manager]
+cwd = { fg = "cyan" }
+
+# Hovered
+hovered         = { fg = "black", bg = "cyan" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "green", italic = true }
+find_position = { fg = "yellow", bg = "magenta", italic = true }
+
+# Marker
+marker_copied   = { fg = "black", bg = "green" }
+marker_cut      = { fg = "black", bg = "red" }
+marker_selected = { fg = "black", bg = "yellow" }
+
+# Tab
+tab_active   = { fg = "black", bg = "cyan" }
+tab_inactive = { fg = "black", bg = "red" }
+tab_width    = 1
+
+# Count
+count_copied   = { fg = "black", bg = "red" }
+count_cut      = { fg = "black", bg = "red" }
+count_selected = { fg = "black", bg = "yellow" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "red" }
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "darkGrey", bg = "darkGrey" }
+
+# Mode
+mode_normal = { fg = "black", bg = "cyan", bold = true }
+mode_select = { fg = "black", bg = "magenta", bold = true }
+mode_unset  = { fg = "black", bg = "blue", bold = true }
+
+# Progress
+progress_label  = { fg = "white", bold = true }
+progress_normal = { fg = "cyan", bg = "green" }
+progress_error  = { fg = "black", bg = "red" }
+
+# Permissions
+permissions_t = { fg = "magenta" }
+permissions_r = { fg = "magenta" }
+permissions_w = { fg = "magenta" }
+permissions_x = { fg = "magenta" }
+permissions_s = { fg = "magenta" }
+
+[input]
+border   = { fg = "cyan" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[select]
+border   = { fg = "black" }
+active   = { fg = "yellow" }
+inactive = {}
+
+[tasks]
+border  = { fg = "magenta" }
+title   = {}
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "blue" }
+cand            = { fg = "black" }
+rest            = { fg = "black" }
+desc            = { fg = "black" }
+separator       = "  "
+separator_style = { fg = "black" }
+
+[help]
+on      = { fg = "yellow" }
+exec    = { fg = "green" }
+desc    = { fg = "blue" }
+hovered = { bg = "magenta", bold = true }
+footer  = { fg = "black", bg = "cyan" }
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "green" },
+
+	# Videos
+	{ mime = "video/*", fg = "green" },
+	{ mime = "audio/*", fg = "green" },
+
+	# Archives
+	{ mime = "application/zip",             fg = "red" },
+	{ mime = "application/gzip",            fg = "red" },
+	{ mime = "application/x-tar",           fg = "red" },
+	{ mime = "application/x-bzip",          fg = "red" },
+	{ mime = "application/x-bzip2",         fg = "red" },
+	{ mime = "application/x-7z-compressed", fg = "red" },
+	{ mime = "application/x-rar",           fg = "red" },
+
+	# Fallback
+	{ name = "*", fg = "white" },
+	{ name = "*/", fg = "magenta" }
+]
