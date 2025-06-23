@@ -46,7 +46,7 @@ export EDITOR=nvim
 
 # Autostart
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers/RosePine &
+nitrogen --set-zoom-fill --random ~/Pictures/Wallpapers &
 dunst &
 nm-applet --indicator &
 # blueman-manager &
