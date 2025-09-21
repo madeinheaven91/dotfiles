@@ -1,0 +1,10 @@
+/* Ef-Winter */
+* {
+    background:     #0f0b15; /* bg_main */
+    background-alt: #1d202f; /* bg_dim */
+    foreground:     #b8c6d5; /* fg_main */
+    selected:       #5f1f5f; /* bg_mode_line */
+    selected-fg:    #dedeff; /* fg_mode_line */
+    active:         #29a444; /* g_green */
+    urgent:         #f47359; /* red */
+}
