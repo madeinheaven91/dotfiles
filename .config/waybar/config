@@ -1,163 +1,106 @@
 {
-  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "spacing": 4,
-  "modules-left": [
-    "hyprland/workspaces",
-    "group/hardware",
-    "cava"
-    ],
+  "height": 24,
+  "spacing": 5,
 
-  "modules-right": [
-    // "mpris",
-    "pulseaudio",
-    // "wireplumber",
-    // "backlight",
-    "tray",
-    "group/keyboard",
-    "battery",
-    "clock"
-    ],
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "wireplumber",  "network", "bluetooth", "niri/language", "battery"],
 
-    "group/hardware": {
-      "orientation": "horizontal",
-      "modules": [
-        "cpu",
-        "memory",
-        "temperature"
-      ]
+  "hyprland/workspaces": {
+    "format": "<span size='larger'>{icon}</span>",
+    "on-click": "activate",
+    "format-icons": {
+      "active": "\uf444",
+      "default": "\uf4c3"
     },
+    "icon-size": 10,
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    }
+  },
 
-    "group/keyboard": {
-      "orientation": "horizontal",
-      "modules": [
-        "hyprland/language",
-        "keyboard-state"
-      ]
-    },
+  "clock": {
+    "format": "{:%d.%m.%Y | %H:%M}"
+  },
 
+  "wireplumber": {
+    "format": "\udb81\udd7e  {volume}%",
+    "format-muted": "\udb81\udd7e  muted",
+    "max-volume": 100,
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
 
-    "hyprland/workspaces": {
-      "disable-scroll-wraparound": true,
-      "smooth-scrolling-threshold": 4,
-      "enable-bar-scroll": true,
-      "format": "{icon}",
-      "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "9": "",
-        "10": "",
-        "focused": "!",
-        "default": "?"
-      }
-    },
-    "cava": {
-      "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-      "framerate": 30,
-      "autosens": 1,
-      "bars": 14,
-      "lower_cutoff_freq": 50,
-      "higher_cutoff_freq": 10000,
-      "method": "pipewire",
-      "source": "auto",
-      "stereo": true,
-      "bar_delimiter": 0,
-      "noise_reduction": 0.77,
-      "input_delay": 2,
-      "hide_on_silence": true,
-      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-      "actions": {
-        "on-click-right": "mode"
-      }
-    },
-    "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-bluetooth": "{icon} {volume}%",
-      "format-muted": "",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", ""]
-      },
-      "scroll-step": 5,
-      "on-click": "pavucontrol",
-      "tooltip": false
-    },
+  "battery": {
+    "interval": 60,
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+  },
 
-    "tray": {
-      "icon-size": 14,
-      "spacing": 10
-    },
-    "clock": {
-      // "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "{:%H:%M / %d.%m.%y}"
-    },
-    "cpu": {
-      "format": "  {usage}% /",
-      "tooltip": false
-    },
-    "memory": {
-      "format": "  {}% /"
-    },
-    "temperature": {
-      // "thermal-zone": 2,
-      // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-      "critical-threshold": 80,
-      // "format-critical": "{temperatureC}°C {icon}",
-      "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
-    },
-    "battery": {
-      "states": {
-        // "good": 95,
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon} {capacity}%",
-      "format-full": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{icon} {time}",
-      // "format-good": "", // An empty format will hide the module
-      // "format-full": "",
- "format-icons": ["", "", "", "", ""]
-    },
-    "hyprland/language": {
-      "format": " {short} /",
-      "min-length": 5,
-      "tooltip": false
-    },
+  "memory": {
+    "interval": 30,
+    "format": "\uf4bc  {used:0.1f}G"
+  },
 
-    "keyboard-state": {
-      "capslock": true,
-      "format": "  {icon}",
-      "format-icons": {
-        "locked": "",
-        "unlocked": ""
-      },
-      "device-path": "/dev/input/event2",
-    },
+  "temperature": {
+    "format": "{temperatureC}°C"
+  },
 
-	"temperature": {
-		"critical-threshold": 90,
-		"interval": 5,
-		"format": "{icon} {temperatureC}°",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
+  "network": {
+    "format": "",
+    "format-ethernet": "\udb83\udc9d",
+    "format-wifi": "{icon}",
+    "format-disconnected": "\udb83\udc9c",
+    "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+  },
+
+  "bluetooth": {
+    "format": "\udb80\udcaf",
+    "format-disabled": "\udb80\udcb2",
+    "format-connected": "\udb80\udcb1",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+
+  "niri/language": {
+    "format": "{short}"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 16
+  },
+
+  "custom/platform-profile": {
+    "format": "{icon} ",
+    "exec": "~/.config/waybar/platform_profile.sh",
+    "return-type": "json",
+    "restart-interval": 1,
+    "format-icons": {
+      "quiet": "\udb80\udf2a",
+      "balanced": "\udb80\ude10",
+      "performance": "\uf427",
+      "default": "?"
+    },
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "\udb80\udd76",
+        "deactivated": "\udb83\udfaa"
+    }
+  }
 }
